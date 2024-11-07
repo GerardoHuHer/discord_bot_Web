@@ -1,4 +1,7 @@
+# Description
+---
 # Installation
+---
 ```bash
-npm i
+npm install
 ```
