@@ -2,6 +2,7 @@
 const { Client, IntentsBitField, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, IntegrationApplication, ActivityType } = require("discord.js");
 require("dotenv").config();
 const token = process.env.TOKEN;
+const eventHandler = require("../src/handlers/eventHandler");
 
 
 const client = new Client({
@@ -12,20 +13,6 @@ const client = new Client({
     IntentsBitField.Flags.MessageContent,
   ]
 });
-
-// const roles = [{
-//   id: "1305267111282868284",
-//   label: "Red Team",
-// },
-// {
-//   id: "1305267179138318478",
-//   label: "Green Team",
-// },
-// {
-//   id: "1305267265847164998",
-//   label: "Blue Team",
-// }
-// ]
 
 // let status = [
 //   {
@@ -67,90 +54,6 @@ const client = new Client({
 //   }, 10000);
 // });
 
-// client.on("interactionCreate", async (interaction) => {
-//   if (!interaction.isChatInputCommand()) return;
-//   if (interaction.commandName === "help"){
-    
-//     const helpEmbed = new EmbedBuilder()
-//       .setTitle("Commands")
-//       .setDescription("This is an embed description")
-//       .setColor("Random")
-//       .addFields(commandsEmbed);
-//     interaction.reply({ embeds: [helpEmbed] });
-//   }
-//   if (interaction.commandName === "hey") {
-//     interaction.reply("Hey!");
-//   }
-//   if (interaction.commandName === "add") {
-//     const num1 = interaction.options.get("first-number")?.value
-//     const num2 = interaction.options.get("second-number")?.value
-//     interaction.reply(`The sum is: ${num1 + num2}`)
-//   }
-//   if (interaction.commandName === "embed") {
-//     const embed = new EmbedBuilder()
-//       .setTitle("Embed Title")
-//       .setDescription("This is an embed description")
-//       .setColor("Random")
-//       .addFields({
-//         name: "Field title",
-//         value: "Some Random Value",
-//         inline: true
-//       },
-//         {
-//           name: "Field title",
-//           value: "Some Random Value",
-//           inline: true
-//         }
-//       );
-//     interaction.reply({ embeds: [embed] });
-//   }
-// });
-
-// client.on("interactionCreate", async (interaction) => {
-//   try {
-//     if (!interaction.isButton()) return;
-//     await interaction.deferReply({ ephemeral: true })
-//     const role = interaction.guild.roles.cache.get(interaction.customId);
-//     if (!role) {
-//       interaction.editReply({
-//         content: "I could not find that role",
-//       })
-//       return;
-//     }
-//     const hasRole = interaction.member.roles.cache.has(role.id);
-//     if (hasRole) {
-//       await interaction.member.roles.remove(role);
-//       await interaction.editReply(`The role ${role} has been removed.`);
-//       return;
-//     }
-//     await interaction.member.roles.add(role);
-//     await interaction.editReply(`The role ${role} has been added.`)
-//   } catch (e) {
-//     console.log("There was an error: ", e)
-//   }
-// })
-
-// client.on("messageCreate", (msg) => {
-//   if (msg.content === "embed") {
-
-//     const embed = new EmbedBuilder()
-//       .setTitle("Embed Title")
-//       .setDescription("This is an embed description")
-//       .setColor("Random")
-//       .addFields({
-//         name: "Field title",
-//         value: "Some Random Value",
-//         inline: true
-//       },
-//         {
-//           name: "Field title",
-//           value: "Some Random Value",
-//           inline: true
-//         }
-//       );
-//     msg.channel.send({ embeds: [embed] });
-//   }
-// })
 
 eventHandler(client);
 
