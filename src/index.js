@@ -10,7 +10,9 @@ const client = new Client({
     IntentsBitField.Flags.Guilds,
     IntentsBitField.Flags.GuildMembers,
     IntentsBitField.Flags.GuildMessages,
+    IntentsBitField.Flags.GuildPresences,
     IntentsBitField.Flags.MessageContent,
+
   ]
 });
 
@@ -22,7 +24,6 @@ const client = new Client({
       useUnifiedTopology: true,
     } );
     console.log("You are connected to a mongo data base");
-
   } catch (error) {
     console.log("There was an error: ", error);
   }

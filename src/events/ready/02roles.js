@@ -9,7 +9,7 @@ module.exports = async (client) => {
   ];
 
   try {
-    const channel = await client.channels.cache.get("1305268339798704179");
+    const channel = await client.channels.cache.get("1303411761742872691");
     if (!channel) return;
 
     const row = new ActionRowBuilder();
