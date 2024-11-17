@@ -18,6 +18,7 @@ const client = new Client({
 
 (async () => {
   try {
+    
     eventHandler(client);
     await mongoose.connect(process.env.DB,{
       useNewUrlParser: true,
@@ -28,6 +29,7 @@ const client = new Client({
     console.log("There was an error: ", error);
   }
 })();
+
 
 
 client.login(token);
