@@ -16,7 +16,7 @@ module.exports = {
             await interaction.editReply("That user does not exist in this server.");
             return;
         }
-        if(!targetUser.user.bot){
+        if(targetUser.user.bot){
             await interaction.editReply("I cannot timeout a bot.");
             return;
         }
