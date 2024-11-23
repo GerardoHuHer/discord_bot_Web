@@ -16,6 +16,15 @@ const client = new Client({
   ]
 });
 
+
+client.on("messageCreate", (msg) => {
+  if (msg.author.bot){
+    return;
+  }
+  if(msg.content === "hello"){
+    msg.reply("Hey!")
+  }
+});
 (async () => {
   try {
     
